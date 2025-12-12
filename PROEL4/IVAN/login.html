@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background: #20001f;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes floatIn {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .login-container {
+            animation: floatIn 1s ease-out;
+            width: fit-content;
+            padding: 50px;
+            border-radius: 20px;
+            background: linear-gradient(#f7d8e8, #d6e7ff, #fdf6d9);
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 32px;
+            color: #4a4a4a;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 10px;
+            font-weight: 600;
+            font-size: 18px;
+            color: #555;
+        }
+
+        input {
+            width: -webkit-fill-available;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            background: #fffafc;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            background: #b28fff;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #9c74ff;
+        }
+
+        .cancel-btn {
+            background: #ff9a9a;
+        }
+
+        .cancel-btn:hover {
+            background: #ff7c7c;
+        }
+
+        .small-text {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .small-text a {
+            color: #6a42ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .small-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h1>Login</h1>
+
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+            <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+
+            <div class="small-text">
+                Don’t have an account? <a href="signup.html">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            localStorage.setItem('loggedIn', 'true');
+
+            alert("Login successful!");
+
+            window.location.href = "home.html";
+        });
+
+        document.getElementById("cancelBtn").addEventListener("click", function() {
+            window.location.href = "home.html";
+        });
+    </script>
+
+</body>
+</html>
