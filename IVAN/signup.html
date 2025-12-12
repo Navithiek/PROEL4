@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+
+    <style>
+        body {
+            background: #20001f; 
+            font-family: "Poppins", sans-serif;
+        }
+
+        .login-container {
+            margin: 100px auto;
+            width: fit-content;
+            padding: 50px;
+            border-radius: 20px;
+            background: linear-gradient(#f7d8e8, #d6e7ff, #fdf6d9);
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 32px;
+            color: #4a4a4a;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 10px;
+            font-weight: 600;
+            font-size: 18px;
+            color: #555;
+        }
+
+        input {
+            width: -webkit-fill-available;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            background: #fffafc;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            background: #b28fff;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #9c74ff;
+        }
+
+        .cancel-btn {
+            background: #ff9a9a;
+        }
+
+        .cancel-btn:hover {
+            background: #ff7c7c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Sign Up</h1>
+
+        <form id="signupForm">
+            <label for="username">Username:</label>
+            <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                placeholder="Enter your username"
+                required
+            >
+
+            <label for="password">Password:</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">Sign Up</button>
+            <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Registration successful!");
+            window.location.href = "home.html"; 
+        });
+
+        document.getElementById("cancelBtn").addEventListener("click", function() {
+            window.location.href = "home.html"; 
+        });
+    </script>
+
+</body>
+</html>
