@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Esports Community | Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #c749c1;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            height: 120px;
+        }
+
+        header img {
+            height: 80px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            background-color: white;
+            color: #c749c1;
+            font-size: 22px;
+            margin: 0 10px;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffd700;
+        }
+
+        .banner {
+            height: 800px;
+            background: url('background.jpg') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner h2 {
+            font-size: 60px;
+            color: white;
+            text-align: center;
+            text-shadow: 4px 4px 6px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <img src="logo.png" alt="Esports Community Logo">
+    <div class="logo-text">Esports Community</div>
+
+    <nav>
+        <a href="#">Teams</a>
+        <a href="#">Events</a>
+        <a href="#">News</a>
+        <a href="#">About</a>
+
+        <!-- Auth navigation -->
+        <a href="signup.html" id="signupNav">Sign Up</a>
+        <a href="login.html" id="loginNav" style="display:none;">Login</a>
+    </nav>
+</header>
+
+<div class="banner">
+    <h2>We Play, We Compete, But We Help Each Other to Survive.</h2>
+</div>
+
+<script>
+    // Account existence check (persistent)
+    const hasAccount = localStorage.getItem("hasAccount");
+
+    if (hasAccount === "true") {
+        document.getElementById("signupNav").style.display = "none";
+        document.getElementById("loginNav").style.display = "inline-block";
+    } else {
+        document.getElementById("signupNav").style.display = "inline-block";
+        document.getElementById("loginNav").style.display = "none";
+    }
+</script>
+</body>
+</html>

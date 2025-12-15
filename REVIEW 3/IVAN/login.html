@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background: #20001f;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 400px;
+            padding: 50px;
+            border-radius: 20px;
+            background: linear-gradient(#f7d8e8, #d6e7ff, #fdf6d9);
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-top: 20px;
+        }
+
+        input {
+            width: -webkit-fill-available;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 12px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            background: #b28fff;
+            color: #fff;
+        }
+
+        .cancel-btn {
+            background: #ff9a9a;
+        }
+
+        .error {
+            color: red;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .small-text {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="login-container">
+    <h1>Login</h1>
+
+    <form id="loginForm">
+        <label>Username</label>
+        <input type="text" id="username" required>
+
+        <label>Password</label>
+        <input type="password" id="password" required>
+
+        <button type="submit" class="login-btn">LOGIN</button>
+        <button type="button" class="cancel-btn" id="cancelBtn">CANCEL</button>
+
+        <div class="error" id="errorMsg"></div>
+
+        <div class="small-text">
+            Don’t have an account? <a href="signup.html">Sign Up</a>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const inputUser = document.getElementById("username").value;
+        const inputPass = document.getElementById("password").value;
+
+        const storedUser = localStorage.getItem("username");
+        const storedPass = localStorage.getItem("password");
+
+        if (inputUser === storedUser && inputPass === storedPass) {
+            alert("You have successfully logged in.");
+            window.location.href = "https://sams.act.edu.ph/Home/Index"
+        } else {
+            document.getElementById("errorMsg").textContent =
+                "Invalid username or password.";
+        }
+    });
+
+    document.getElementById("cancelBtn").addEventListener("click", function () {
+        window.location.href = "home.html";
+    });
+</script>
+</body>
+</html>
